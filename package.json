@@ -8,7 +8,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src -d dist",
     "test": "yarn jest",
-    "version": "generate-changelog && git add -A ./docs ./CHANGELOG.md"
+    "version": "generate-changelog && git add -A ./CHANGELOG.md"
   },
   "engines": {
     "node": ">= 4.8 < 5.0.0 || >= 5.10"
