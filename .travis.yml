@@ -10,7 +10,6 @@ cache:
     - dist
 
 script:
-  - yarn lint
   - yarn test
   - NODE_ENV=production yarn build
 
