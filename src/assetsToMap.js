@@ -18,7 +18,6 @@ function AssetsToMap(options) {
 
 AssetsToMap.prototype.apply = function (compiler) {
     compiler.plugin('after-emit', (compilation, callback) => {
-        console.log("this", this)
         this.writeFile();
         callback();
     });
