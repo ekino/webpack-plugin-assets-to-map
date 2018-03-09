@@ -3,6 +3,7 @@ const prefixLog = "[assetsToMap]    ";
 
 function AssetsToMap(options) {
     this.files = options.files ? options.files : {};
+    this.format = options.format ? options.format : "json";
     this.sourcePath = options.sourcePath ? options.sourcePath : "";
     this.outputPath = options.outputPath ? options.outputPath : "";
     this.filename = options.filename ? options.filename : "asset.json";
@@ -29,7 +30,8 @@ AssetsToMap.prototype.apply = function (compiler) {
  * Writes an asset to disk
  */
 AssetsToMap.prototype.writeFile = function () {
-    const result = {};
+    let resultObj = {};
+    let resultStr = "";
 
     if (Object.keys(this.files).length === 0) {
         console.error("[assetsToMap]    No files provided");
@@ -43,7 +45,22 @@ AssetsToMap.prototype.writeFile = function () {
         }
 
         //read existing contents into data
-        result[key] = fs.readFileSync(this.sourcePath + this.files[key]).toString('UTF-8');
+        switch (this.format){
+            case "toml":
+                resultStr += `${key} = '''
+                ${fs.readFileSync(this.sourcePath + this.files[key]).toString('UTF-8')}'''
+                \n`;
+                break;
+            case "yaml":
+                resultStr += `${key} : |
+                ${fs.readFileSync(this.sourcePath + this.files[key]).toString('UTF-8').replace(/[\r\n]+/g, " ")}'''
+                \n`;
+                break;
+            default:
+                resultObj[key] = fs.readFileSync(this.sourcePath + this.files[key]).toString('UTF-8');
+                break;
+        }
+
 
         if(this.verbose){
             console.info(`${prefixLog}${this.sourcePath}${this.files[key]} added to ${this.outputPath}${this.filename}`);
@@ -61,8 +78,8 @@ AssetsToMap.prototype.writeFile = function () {
         }
     }
 
-    fs.writeFileSync(this.outputPath + this.filename, new Buffer(
-        JSON.stringify(result)
+    fs.writeFileSync(this.outputPath + this.filename + "." + this.format, new Buffer(
+        (this.format === "yaml" || this.format === "toml") ? resultStr :  JSON.stringify(resultObj)
     ));
 
     if(this.verbose) {
