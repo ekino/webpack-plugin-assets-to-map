@@ -1,3 +1,10 @@
+#### 1.2.0 (2018-03-09)
+
+##### New Features
+
+* **format:**  add YAML and TOML format ([9b2e8e9e](https://github.com/ekino/webpack-plugin-assets-to-map/commit/9b2e8e9e97e4147252d60861f48a7f96f1dbbe3c))
+* **options:**  add verbose and deleteFiles option ([e2052a14](https://github.com/ekino/webpack-plugin-assets-to-map/commit/e2052a142557c0bcbe092dad2473a5f8d8508f8b))
+
 #### 1.1.0 (2018-03-09)
 
 #### 1.0.1 (2018-03-08)
