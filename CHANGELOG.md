@@ -1,3 +1,9 @@
+#### 1.2.1 (2018-03-09)
+
+##### Bug Fixes
+
+* **assetsToMap:**  add unit tests ([3fbccc6e](https://github.com/ekino/webpack-plugin-assets-to-map/commit/3fbccc6e8bfca89df6e7a0d853400e44413b9be7))
+
 #### 1.2.0 (2018-03-09)
 
 ##### New Features
