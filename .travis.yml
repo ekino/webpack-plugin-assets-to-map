@@ -11,6 +11,7 @@ cache:
 
 script:
   - yarn test
+  - yarn security
   - NODE_ENV=production yarn build
 
 before_deploy: "ls -al dist"
