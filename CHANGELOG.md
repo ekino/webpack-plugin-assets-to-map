@@ -1,3 +1,17 @@
+#### 1.2.2 (2018-03-09)
+
+##### Chores
+
+* **security:**  add nsp check before build ([15b24d9a](https://github.com/ekino/webpack-plugin-assets-to-map/commit/15b24d9a671cff30a025ae74d10fad599ad45aa3))
+
+##### Bug Fixes
+
+* **assetsToMap:**  remove useless check ([49b63d3c](https://github.com/ekino/webpack-plugin-assets-to-map/commit/49b63d3c5765d9eb5e424f45b457381928208905))
+
+##### Code Style Changes
+
+* **prettier:**  add prettier ([b8919cf4](https://github.com/ekino/webpack-plugin-assets-to-map/commit/b8919cf4b5fec8f33848a0536f380b4cbea8561f))
+
 #### 1.2.1 (2018-03-09)
 
 ##### Bug Fixes
