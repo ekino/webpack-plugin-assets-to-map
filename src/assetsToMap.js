@@ -1,18 +1,19 @@
 const fs = require('fs');
 const prefixLog = "[assetsToMap]    ";
 
-function AssetsToMap(options) {
+function AssetsToMap(options = {}) {
     this.files = options.files ? options.files : {};
     this.format = options.format ? options.format : "json";
     this.sourcePath = options.sourcePath ? options.sourcePath : "";
     this.outputPath = options.outputPath ? options.outputPath : "";
     this.filename = options.filename ? options.filename : "asset.json";
     this.deleteFiles = options.deleteFiles ? options.deleteFiles : false;
-    this.verbose = options.verbose ? options.verbose : false;
+    this.logger = options.logger ? options.logger : {error: () => {}, info: () => {}};
 
     if (this.sourcePath !== "" && this.sourcePath.slice(-1) !== "/") {
         this.sourcePath += "/";
     }
+
 
     if (this.outputPath !== "" && this.outputPath.slice(-1) !== "/") {
         this.outputPath += "/";
@@ -34,14 +35,14 @@ AssetsToMap.prototype.writeFile = function () {
     let resultStr = "";
 
     if (Object.keys(this.files).length === 0) {
-        console.error("[assetsToMap]    No files provided");
-        return;
+        this.logger.error(`${prefixLog}No files provided`);
+        return false;
     }
 
     for (const key in this.files) {
         if (!this.files.hasOwnProperty(key)) {
-            console.error(`${prefixLog}no key provided for ${this.files[key]}`);
-            return;
+            this.logger.error(`${prefixLog}no key provided for ${this.files[key]}`);
+            return false;
         }
 
         //read existing contents into data
@@ -61,19 +62,15 @@ AssetsToMap.prototype.writeFile = function () {
                 break;
         }
 
+        this.logger.info(`${prefixLog}${this.sourcePath}${this.files[key]} added to ${this.outputPath}${this.filename}`);
 
-        if(this.verbose){
-            console.info(`${prefixLog}${this.sourcePath}${this.files[key]} added to ${this.outputPath}${this.filename}`);
-        }
-
+        // TODO: deleteFiles at the very end
         if(this.deleteFiles){
             fs.unlink(this.sourcePath + this.files[key], (err) => {
                 if (err) {
                     throw err
                 }
-                if(this.verbose) {
-                    console.info(`${prefixLog}${this.sourcePath}${this.files[key]} was deleted`);
-                }
+                this.logger.info(`${prefixLog}${this.sourcePath}${this.files[key]} was deleted`);
             });
         }
     }
@@ -82,9 +79,11 @@ AssetsToMap.prototype.writeFile = function () {
         (this.format === "yaml" || this.format === "toml") ? resultStr :  JSON.stringify(resultObj)
     ));
 
-    if(this.verbose) {
-        console.info(`${prefixLog}${this.outputPath}${this.filename} was created`);
-    }
+    //TODO: delete files now.
+
+    this.logger.info(`${prefixLog}${this.outputPath}${this.filename} was created`);
+
+    return true;
 };
 
 module.exports = AssetsToMap;

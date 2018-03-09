@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AssetsToMap multiple files provided writeFiles format set to default 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
+
+exports[`AssetsToMap multiple files provided writeFiles format set to json 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
+
+exports[`AssetsToMap multiple files provided writeFiles format set to toml 1`] = `
+"success = '''
+                console.log(\\"mock.js file\\");'''
+                
+style = '''
+                .mock2{
+    content: \\"mock2.css\\";
+    background: rebeccapurple;
+    color: aliceblue;
+}'''
+                
+"
+`;
+
+exports[`AssetsToMap multiple files provided writeFiles format set to yaml 1`] = `
+"success : |
+                console.log(\\"mock.js file\\");'''
+                
+style : |
+                .mock2{     content: \\"mock2.css\\";     background: rebeccapurple;     color: aliceblue; }'''
+                
+"
+`;
+
+exports[`AssetsToMap remove files inlined writeFiles format set to default 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
+
+exports[`AssetsToMap remove files inlined writeFiles format set to json 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
+
+exports[`AssetsToMap remove files inlined writeFiles format set to toml 1`] = `
+"success = '''
+                console.log(\\"mock.js file\\");'''
+                
+style = '''
+                .mock2{
+    content: \\"mock2.css\\";
+    background: rebeccapurple;
+    color: aliceblue;
+}'''
+                
+"
+`;
+
+exports[`AssetsToMap remove files inlined writeFiles format set to yaml 1`] = `
+"success : |
+                console.log(\\"mock.js file\\");'''
+                
+style : |
+                .mock2{     content: \\"mock2.css\\";     background: rebeccapurple;     color: aliceblue; }'''
+                
+"
+`;
+
+exports[`AssetsToMap single file provided writeFiles format set to default 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\"}"`;
+
+exports[`AssetsToMap single file provided writeFiles format set to json 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\"}"`;
+
+exports[`AssetsToMap single file provided writeFiles format set to toml 1`] = `
+"success = '''
+                console.log(\\"mock.js file\\");'''
+                
+"
+`;
+
+exports[`AssetsToMap single file provided writeFiles format set to yaml 1`] = `
+"success : |
+                console.log(\\"mock.js file\\");'''
+                
+"
+`;
+
+exports[`AssetsToMap writeFiles sourcePath and outputPath should be okay with a trailing slash 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
+
+exports[`AssetsToMap writeFiles sourcePath and outputPath should be okay without a trailing slash 1`] = `"{\\"success\\":\\"console.log(\\\\\\"mock.js file\\\\\\");\\",\\"style\\":\\".mock2{\\\\n    content: \\\\\\"mock2.css\\\\\\";\\\\n    background: rebeccapurple;\\\\n    color: aliceblue;\\\\n}\\"}"`;
