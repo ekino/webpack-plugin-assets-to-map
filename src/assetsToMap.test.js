@@ -49,10 +49,10 @@ describe('AssetsToMap', () => {
         expect(result).toBeFalsy()
     });
 
-    test('writeFiles no key provided', () => {
+    test('writeFiles files is not an object', () => {
         // with
         const config = {
-            files: [{"success": "success.js"}, "test.js", "test2.css"]
+            files: ["test.js", "test2.css"]
         };
         const plugin = new AssetsToMap();
 

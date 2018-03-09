@@ -40,10 +40,6 @@ AssetsToMap.prototype.writeFile = function () {
     }
 
     for (const key in this.files) {
-        if (!this.files.hasOwnProperty(key)) {
-            this.logger.error(`${prefixLog}no key provided for ${this.files[key]}`);
-            return false;
-        }
 
         //read existing contents into data
         switch (this.format){
