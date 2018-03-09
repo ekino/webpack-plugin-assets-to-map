@@ -31,7 +31,10 @@ Name of the json file
 }
 key will be used as the key in the generated json file
 name is the name of the bundle you're appending to the generated json file.
-
+- deleteFiles: (true|false) (default: false)
+allows the plugin to delete source files inlined if true
+- verbose: (true|false) (default: false)
+add console.log
 ### Examples
 ``` javascript
 const webpack = require("webpack");

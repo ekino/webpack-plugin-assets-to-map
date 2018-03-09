@@ -6,6 +6,8 @@ function AssetsToMap(options) {
     this.sourcePath = options.sourcePath ? options.sourcePath : "";
     this.outputPath = options.outputPath ? options.outputPath : "";
     this.filename = options.filename ? options.filename : "asset.json";
+    this.deleteFiles = options.deleteFiles ? options.deleteFiles : false;
+    this.verbose = options.verbose ? options.verbose : false;
 
     if (this.sourcePath !== "" && this.sourcePath.slice(-1) !== "/") {
         this.sourcePath += "/";
@@ -36,28 +38,36 @@ AssetsToMap.prototype.writeFile = function () {
 
     for (const key in this.files) {
         if (!this.files.hasOwnProperty(key)) {
-            // do your computation here.
             console.error(`${prefixLog}no key provided for ${this.files[key]}`);
             return;
         }
 
         //read existing contents into data
         result[key] = fs.readFileSync(this.sourcePath + this.files[key]).toString('UTF-8');
-        console.info(`${prefixLog}${this.sourcePath}${this.files[key]} added to ${this.outputPath}${this.filename}`);
 
-        fs.unlink(this.sourcePath + this.files[key], (err) => {
-            if (err) {
-                throw err
-            }
-            console.info(`${prefixLog}${this.sourcePath}${this.files[key]} was deleted`);
-        });
+        if(this.verbose){
+            console.info(`${prefixLog}${this.sourcePath}${this.files[key]} added to ${this.outputPath}${this.filename}`);
+        }
+
+        if(this.deleteFiles){
+            fs.unlink(this.sourcePath + this.files[key], (err) => {
+                if (err) {
+                    throw err
+                }
+                if(this.verbose) {
+                    console.info(`${prefixLog}${this.sourcePath}${this.files[key]} was deleted`);
+                }
+            });
+        }
     }
 
     fs.writeFileSync(this.outputPath + this.filename, new Buffer(
         JSON.stringify(result)
     ));
 
-    console.info(`${prefixLog}${this.outputPath}${this.filename} was created`);
+    if(this.verbose) {
+        console.info(`${prefixLog}${this.outputPath}${this.filename} was created`);
+    }
 };
 
 module.exports = AssetsToMap;
