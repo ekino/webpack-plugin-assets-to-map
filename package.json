@@ -1,6 +1,6 @@
 {
   "name": "assets-to-map-webpack-plugin",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": "Sebastien Picq @kheltdire",
   "description": "Append build assets to a mappable file",
   "license": "MIT",

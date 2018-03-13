@@ -1,3 +1,10 @@
+#### 1.2.5 (2018-03-13)
+
+##### Chores
+
+* **travis:**  skip clean up phase ([d3615eef](https://github.com/ekino/webpack-plugin-assets-to-map/commit/d3615eef97307b8f3ed86203351a78a455549300))
+* **npm:**  update npmignore ([4442b7de](https://github.com/ekino/webpack-plugin-assets-to-map/commit/4442b7de6664287a52ba7c996cdf1d4b67d8db91))
+
 #### 1.2.4 (2018-03-13)
 
 ##### Chores
