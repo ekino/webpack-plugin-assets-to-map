@@ -1,3 +1,9 @@
+#### 1.2.4 (2018-03-13)
+
+##### Chores
+
+* **npm:**  add npmignore file ([46d3164b](https://github.com/ekino/webpack-plugin-assets-to-map/commit/46d3164b30d7e7e05f65cf75381a0131e900b2f7))
+
 #### 1.2.3 (2018-03-13)
 
 #### 1.2.2 (2018-03-09)
