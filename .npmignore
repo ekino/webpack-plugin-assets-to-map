@@ -1,0 +1,8 @@
+.idea/
+yarn-error.log
+node_modules/
+coverage/
+src/
+.babelrc
+.eslintrc
+.travis.yml
