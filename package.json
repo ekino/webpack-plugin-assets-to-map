@@ -1,6 +1,6 @@
 {
   "name": "assets-to-map-webpack-plugin",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Sebastien Picq @kheltdire",
   "description": "Append build assets to a mappable file",
   "license": "MIT",
@@ -8,27 +8,32 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src -d dist",
     "test": "yarn jest",
-    "security": "yarn nsp check --reporter summary",
     "lint": "prettier --trailing-comma es5 --write \"src/*.js\"",
     "version": "generate-changelog && git add -A ./CHANGELOG.md"
   },
   "engines": {
-    "node": ">= 4.8 < 5.0.0 || >= 5.10"
+    "node": ">=8"
   },
   "homepage": "https://github.com/ekino/webpack-plugin-assets-to-map",
   "repository": {
     "type": "git",
     "url": "https://github.com/ekino/webpack-plugin-assets-to-map"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist"
+    ]
+  },
   "devDependencies": {
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "cross-env": "^5.1.3",
-    "generate-changelog": "^1.7.0",
-    "jest": "^22.4.2",
-    "nsp": "^3.2.1",
+    "generate-changelog": "^1.8.0",
+    "jest": "^25.2.3",
     "prettier": "1.11.1"
   }
 }

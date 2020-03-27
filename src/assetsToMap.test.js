@@ -47,13 +47,16 @@ function cpSourceFilesMock() {
 }
 
 describe("AssetsToMap", () => {
-  beforeEach(() => {
-    cpSourceFilesMock();
+  beforeEach(async (done) => {
+    await cpSourceFilesMock();
+    done();
   });
 
-  afterEach(() => {
-    cleanResultFiles();
-    cleanSourceFilesMock();
+  afterEach(async (done) => {
+    await cleanResultFiles();
+    await cleanSourceFilesMock();
+
+    done();
   });
 
   test("hello world", () => {

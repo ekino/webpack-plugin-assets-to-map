@@ -1,3 +1,9 @@
+#### 1.2.6 (2020-03-27)
+
+##### Chores
+
+* **version:**  bump dependencies versions ([367be8ec](https://github.com/ekino/webpack-plugin-assets-to-map/commit/367be8ecae08e91ecc29832b8ee416c7290c29de))
+
 #### 1.2.5 (2018-03-13)
 
 ##### Chores
